@@ -11,7 +11,6 @@ This document provides step-by-step instructions for creating an HTTP service in
      ```
      |_ dir1
      |_ dir2
-     |_ dir3
      |_ file1
      |_ file2
      ```
@@ -229,16 +228,7 @@ This guide provides step-by-step instructions to set up Terraform on an Amazon L
 
 ## Terraform Configuration Files
 
-### 1. `provider.tf`
-This file configures the AWS provider and specifies the AWS region.
-
-```hcl
-provider "aws" {
-  region = "us-west-2"  # Specify the region, e.g., us-west-2 for free-tier eligibility
-}
-```
-
-### 2. `variables.tf`
+### 1. `variables.tf`
 Defines variables for the Terraform configuration, such as instance type, AMI ID, and S3 bucket name.
 
 ```hcl
@@ -255,7 +245,7 @@ variable "bucket_name" {
 }
 ```
 
-### 3. `main.tf`
+### 2. `main.tf`
 Defines the resources to be provisioned, including an EC2 instance, S3 bucket, and security groups.
 
 ```hcl
@@ -311,7 +301,7 @@ resource "aws_security_group_rule" "http_service_sg_rule" {
 }
 ```
 
-### 4. `outputs.tf`
+### 3. `outputs.tf`
 Defines outputs to display relevant information after the infrastructure is deployed.
 
 ```hcl
